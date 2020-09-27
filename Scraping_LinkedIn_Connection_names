@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Sep 20 22:30:18 2020
+
+@author: Bhakti
+"""
+
+from selenium import webdriver
+import pandas as pd
+from selenium.webdriver.support.ui import WebDriverWait
+df = pd.DataFrame(columns= ["Name"])
+
+main_url="https://www.linkedin.com/mynetwork/invite-connect/connections/"
+url= "https://www.linkedin.com/uas/login"
+# Opening the web driver
+driver=webdriver.Chrome()
+
+
+driver.implicitly_wait(5)
+driver.maximize_window()
+
+driver.get(url)
+driver.implicitly_wait(5)
+username = driver.find_element_by_xpath("//*[@id='username']")
+password = driver.find_element_by_xpath("//*[@id='password']")
+signin = driver.find_element_by_xpath("//button[@type='submit']")
+username.send_keys('abcd')
+password.send_keys('password')
+driver.implicitly_wait(5)
+signin.click()
+driver.implicitly_wait(5)
+driver.get(main_url)
+
+
+print("1 ")
+names = driver.find_elements_by_xpath("//span[@class='mn-connection-card__name t-16 t-black t-bold']")
+print("2 ")
+print(names)
+while(names)
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight)");
+#driver.execute_script("w")
+for name in names:
+    df = df.append({"Name":name.text},ignore_index=True)
+    
