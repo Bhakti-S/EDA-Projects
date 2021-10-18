@@ -1,2 +1,1 @@
-# 100daysofDataScience
-Exploring, learning and documenting Data Science concepts, one day at a time.
+Set of projects under Exploratory data analysis and concepts of data pre-processing, manipulation and descriptive analytics.
